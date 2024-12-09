@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <script>
+function outer(){
+    let lang1 = 'JS';
+    let counter = 0;
+
+     function inner(){
+        console.log(lang1)
+
+        counter++;
+        console.log(counter)
+    }
+}
+let res = outer()
+console.log(res)
+//  inner fn has acces to outer fn varialbles or fn`s even outer fn terminated
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Share Api</title>
+  </head>
+  <body>
+    <div>
+      <input type="file" id="media" />
+    </div>
+    <button onclick="share()">Share</button>
+    <script>
+      let imgEle = document.querySelector("#media");
+
+      async function share() {
+        let file = imgEle.files;
+        if (navigator.share) {
+          navigator.share({
+            title: "demo",
+            text: "check this url",
+            url: "https://youtu.be/OCR-Ae_TbJc?si=mJmT90_l0djOZ444",
+            files: file,
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

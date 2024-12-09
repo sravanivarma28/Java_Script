@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays equal or not</title>
+</head>
+<body>
+   <script>
+    let nums1 = [100,200,500];
+    let nums2 = [100,200,600,500];
+
+    function CompareArrays(arr1,arr2){
+        if(arr1.length != arr2.length){
+            return false;
+        } else{
+            for(i=0;i<arr1.length;i++){
+              if(arr1[i] != arr2[i])
+         return false
+            }
+        }
+        return true
+    }
+    if(CompareArrays(nums1,nums2))
+        console.log("arrays equal")
+     else 
+     console.log("arrays not equal")
+
+   </script> 
+</body>
+</html>

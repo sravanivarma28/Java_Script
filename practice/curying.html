@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currying</title>
+</head>
+<body>
+    <script>
+        function multiply(a,b){
+            return a*b
+        }
+        function multiplyCurry(a){
+            return function(b){
+                return a*b
+            }
+        }
+        multiply(5,6)
+        let multiplywithfive = multiplyCurry(5)
+
+        console.log(multiplywithfive(7))
+        console.log(multiplywithfive(9))
+
+        let multiplywithsix = multiplyCurry(6)
+
+        console.log(multiplywithsix(7))
+        console.log(multiplywithsix(9))
+
+
+        
+    </script>
+</body>
+</html>

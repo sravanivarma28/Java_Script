@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map & Foreach</title>
+</head>
+<body>
+    <script>
+        list = [8,9,4,3,7];
+
+        let mapres = list.map((ele)=>{
+            return ele*ele
+        })
+        let fechres = list.forEach((ele) => {
+            return ele*ele
+        })
+        console.log(list)
+        let foreach = list.forEach((ele , index,arr) => {
+            arr[index]+=2
+        })
+
+        console.log('map res =',mapres);
+        console.log('foreach res =',fechres)
+        
+        console.log(list)
+        console.log('foreach res =',foreach)
+
+    </script>
+</body>
+</html>

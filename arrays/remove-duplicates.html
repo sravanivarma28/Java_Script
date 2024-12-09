@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Duplicates & unique elements</title>
+  </head>
+  <body>
+    <script>
+      let arr = [8, 9, 7, 6, 1, 4, 6, 8, 7];
+      function getUniqueArray(arr) {
+        let uniqueArray = [];
+
+        for (ele of arr) {
+          if (uniqueArray.indexOf(ele) == -1) {
+            uniqueArray.push(ele);
+          }
+        }
+        return uniqueArray;
+      }
+      console.log('original array',arr);
+      console.log("Remove duplicates", getUniqueArray(arr));
+
+      // destructuring another method remove duplicates
+      let uniqueArr2 = [...new Set(arr)];
+      console.log("Remove duplicates",uniqueArr2);
+
+      //another method
+      const array = [14, 2, 3, 6, 2, 14, 8, 6, 3];
+      console.log('original array',array);
+
+      const duplicates = array.filter(
+        (ele, index, arr) => arr.indexOf(ele) !== index
+      );
+      console.log("Remove duplicates",duplicates);
+
+      // unique elements
+      const unique = array.filter(
+        (ele, index, arr) => arr.indexOf(ele) == index
+      );
+      console.log('unique elements',unique);
+    </script>
+  </body>
+</html>

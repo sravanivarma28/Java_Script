@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delet index an array</title>
+</head>
+<body>
+    <script>
+         const arr = [4,6,7,8,3,5];
+        const deleteAt = 2;
+
+        const newArray = [...arr.slice(0,deleteAt), ...arr.slice(deleteAt+1)];
+
+        // delete specific element
+        // const newArray =  arr.filter(item=> item !== deleteAt)
+        console.log(newArray)
+   var students = ['a','b' ,'c' ,'d' ,'e'];
+   delete students[2];
+   console.log('students length after deletion is : ' + students.length)
+    </script>
+</body>
+</html>

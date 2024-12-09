@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling</title>
+    <style>
+      li {
+        list-style: none;
+        width: 100px;
+        height: 20px;
+        background: violet;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul onclick="console.log('parent clicked')">
+      <li onclick="console.log('list 1 clicked')">list 1</li>
+      <li onclick="console.log('list 2 clicked')">list 2</li>
+      </ul>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currying</title>
+</head>
+<body>
+    <script>
+        function sum(a,b,c){
+            return a+b+c
+        }
+        console.log(sum(7,9,11))
+
+        function addCurry(a){
+            return function(b){
+                return function(c){
+                    return a+b+c
+                }
+            }
+        }
+        console.log(sum(7,4,2))
+        console.log(addCurry(7))
+        console.log(addCurry(7)(3))
+        console.log(addCurry(7)(3)(2))
+        
+    </script>
+</body>
+</html>

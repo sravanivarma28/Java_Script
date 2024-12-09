@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:#f5f1f1;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+}
+input{
+        background-color: white;
+        border-radius: 20px;
+        border: 1px solid white;
+        padding: 8px 20px;
+        outline: none;
+}
+input:focus{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.wavy{
+    position: relative;
+animation: wavy 1.5s ease infinite;
+}
+h1{
+    margin-top: 30px;
+}
+@keyframes wavy{
+    0%{
+        top: 0px;
+    }
+    50%{
+        top: -18px;
+    }
+    100%{
+        top: 0px;
+    }
+}

@@ -1,0 +1,123 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capatcha Validation</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        background: #607680;
+        align-items: center;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 450px;
+        padding: 20px;
+        border-radius: 20px;
+        background-color: white;
+      }
+      h1 {
+        font-size: 40px;
+        color: white;
+      }
+      #captchaText {
+        background: url("./Images/captcha.jpeg");
+        position: relative;
+        left: 50%;
+        width: 150px;
+        text-align: center;
+        display: block;
+        outline: none;
+        border: none;
+        font-size: 30px;
+        margin-top: 15px;
+        transform: translateX(-50%);
+        font-weight: bold;
+      }
+      #captchaEnter {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 300px;
+        height: 40px;
+        font-weight: 400;
+        border: 2px solid rgb(97, 94, 94);
+        font-size: 30px;
+        text-align: center;
+        display: block;
+      }
+      #refreshbtn {
+        background-color: rgb(90, 104, 235);
+        border: 3px solid rgb(90, 104, 235);
+        padding-bottom: 30px;
+        margin-right: 20px;
+      }
+      #checkbtn {
+        background-color: #66ff99;
+        border: 3px solid #66ff99;
+        padding-bottom: 30px;
+
+      }
+      .btn {
+        color: white;
+        padding: 10px;
+        width: 150px;
+        height: 35px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Captcha Validation</h1>
+    <div class="container">
+      <form action="">
+        <input type="text" id="captchaText" />
+        <input type="text" id="captchaEnter" />
+        <input type="button" value="Refresh" id="refreshbtn" class="btn" />
+        <input type="button" value="Check" id="checkbtn" class="btn" />
+      </form>
+    </div>
+    <script>
+        let captchaText = document.getElementById('captchaText');
+        let captchaEnter = document.getElementById('captchaEnter');
+        let refreshbtn = document.getElementById('refreshbtn');
+        let checkbtn = document.getElementById('checkbtn');
+
+        let chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+        let captcha 
+        function generateCaptcha(){
+            captcha =''
+        for(i=0;i<7;i++){
+       let index = Math.floor(Math.random()*chars.length);
+       captcha = captcha+chars[index]
+        }
+        captchaText.value  =captcha
+    }
+    function validateCaptcha(){
+        if(captcha == captchaEnter.value){
+            alert('valid captcha !!! success')
+        }
+        else{
+            alert('invalid captcha')
+        captchaEnter.value = ''
+    }
+    }
+generateCaptcha()
+refreshbtn.onclick = generateCaptcha;
+checkbtn.onclick = validateCaptcha
+
+    </script>
+  </body>
+</html>

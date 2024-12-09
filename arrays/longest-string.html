@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest String in array</title>
+</head>
+<body>
+    <script>
+        let langs = ['HTML','CSS','JAVASCRIPT' ,'REACT JS' ,'Web Development'];
+        let longest =langs[0];
+
+        for(i=1;i<langs.length;i++){
+            if(longest.length<langs[i].length){
+                longest = langs[i];
+            }
+        }
+        console.log(longest)
+    </script>
+</body>
+</html>

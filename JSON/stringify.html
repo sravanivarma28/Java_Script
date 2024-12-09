@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stringify & Parse Method</title>
+</head>
+<body>
+    <script>
+    mobile = {
+    name : 'samsung',
+    price : 40000,
+    ram : '8GB',
+    storage : '64GB'
+}
+let newMobile = JSON.stringify(mobile)
+console.log(newMobile)
+
+pmobile = JSON.parse(newMobile)
+console.log(pmobile)
+    </script>
+</body>
+</html>

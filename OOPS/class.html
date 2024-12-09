@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class in OOPS</title>
+</head>
+<body>
+    <script>
+        class mobiles {
+    constructor(n,p,r){
+        this.name = n;
+        this.ram = r
+    }
+    set priceSet(n){
+        if(p<=0){
+            alert('price cannot be lessthan 0')
+
+        } else{
+                 this.price = p
+        }
+    }
+    get getName(){
+        return 'mobile name :'+this.name
+    }
+}
+    let m1 = new mobiles('realme 8',16000,'6gb')
+    console.log(m1)
+
+    </script>
+</body>
+</html>

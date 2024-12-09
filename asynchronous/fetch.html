@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+<body>
+    <script>
+        let p = fetch('https://restcountries.com/v3.1/all')
+        p.then(function(response){
+            response.json().then(function(countryInfo){
+                console.log(countryInfo)
+            })
+        })
+        p.catch(function(error){
+            console.log(error)
+            console.log('error')
+        })
+    </script>
+</body>
+</html>

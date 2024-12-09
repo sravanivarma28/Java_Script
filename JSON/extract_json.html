@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract values from JSON</title>
+</head>
+<body>
+    <script>
+        const input = {
+            'cousre' : [
+                {
+                    name:"UI",
+                    duration:"60Days",
+                    skills:["HTML","CSS","BS","JS","JQUERY"],
+                    fee:15000,
+                    mode:"Online/Offline"
+        },
+        {
+                    name:"Angular",
+                    duration:"70Days",
+                    skills:"HTML,CSS,BS,JS,JQUERY,Angular,Typescript",
+                    fee:20000,
+                    mode:"Online/Offline"
+                    } 
+            ]
+        }
+        const op = input.cousre.map(function(item){
+            let courseName = {
+                name : item.name,
+                mode : item.mode
+            }
+            return courseName;
+        })
+        console.log(op)
+    </script>
+</body>
+</html>

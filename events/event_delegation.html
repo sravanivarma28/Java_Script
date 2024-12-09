@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation</title>
+    <style>
+      li {
+        list-style: none;
+        width: 100px;
+        height: 20px;
+        background: violet;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+   <ul>
+    <li id="electronics">Electronics</li>
+    <li id="fashion">Fashion</li>
+    <li id="grocery">Grocery</li>
+    <li id="gifts">Gifts</li>
+   </ul>
+
+   <script>
+    let ul = document.querySelector('ul')
+    ul.onclick = function(e){
+        console.log(e.target)
+
+    }
+   </script>
+  </body>
+  
+</html>

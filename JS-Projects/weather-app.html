@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather -App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+style.css
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+body{
+    background:linear-gradient(to right,#36d1dc,#5b86e5);
+}
+
+.container{
+    background-color: white;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding-bottom: 50px;
+
+}
+.container .title{
+    padding: 10px 0;
+    font-size:40px;
+    text-align: center;
+
+}
+
+.container .input{
+    text-align: center;
+    margin: 10px 0;
+  
+}
+.container #location-input{
+    background-color: white;
+    border: 1.5px solid rgba(0,0,0,0.4);
+    outline: none;
+    height: 38px;
+    padding: 8px 10px;
+    width: 60%;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+.container #location-input:focus{
+    box-shadow: 0px 0px 3px  #015b7e;
+}
+
+
+.container .input #btn{
+    width: 20%;
+    background-color:#015b7e;
+    color: white;
+    padding: 7px 10px;
+    font-size: 16px;
+    outline: none;
+    border: #015b7e;
+    position: relative;
+    left:-5px;
+    border-radius: 0 5px  5px 0;
+    height: 39px;
+    cursor: pointer;
+}
+.container .input #btn:hover,.container .input #btn:active{
+    background-color:#015b71;
+    box-shadow: 0px 0px 2px  #015b7e;
+}
+ img{
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.info{
+    color: #293251;
+}
+.temp{
+    text-align: center;
+    font-size:50px;
+     font-weight: 600;
+}
+#c{
+    font-size: 30px;
+    margin-left: 10px;
+}
+#weather-desc{
+    font-size:25px;
+    text-align: center;
+    padding: 8px;
+    font-weight: 600;
+    
+}
+
+#location{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <p>Weather App</p>
+        </div> 
+        <div class="input">
+            <input type="text" id="location-input" placeholder="Loaction...">
+            <input type="button" value="Get" id="btn">
+        </div>       
+        <div class="info">
+            <img src="./Images/cloud.png" id="icon" >
+            <div class="temp"><span id="temp-value">25</span><span id="unit">&#176</span><span id="c">C</span> </div>
+            <div id="weather-desc">Cloudy</div>
+            <div id="location">Hyderabad</div>
+        </div>
+    </div>
+    <script>
+let inputEle = document.getElementById("location-input")
+let tempEle = document.getElementById("temp-value")
+let locEle = document.getElementById("location")
+let weatherdescEle = document.getElementById('weather-desc')
+let btnEle = document.getElementById("btn");
+
+
+const apiKey = '260368efbaa0b81aec32d0ab21e41872';
+
+btnEle.onclick = function(){
+    if(inputEle.value=="")
+    alert("please enter some location")
+else{
+    loc = inputEle.value
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}`
+    fetch(url).then(res =>res.json())
+    .then(data=>{
+        console.log(data)
+         const{name} = data
+           const{feels_like} = data.main
+           const{description} = data.weather[0]
+
+           tempEle.innerText = Math.floor(feels_like-273);
+           locEle.innerText = name;
+           weatherdescEle.innerText = description
+    })
+    .catch(()=>{
+        alert("Enter valid location");
+    })
+    inputEle.value =""
+}
+}
+    </script>  
+</body>
+</html>

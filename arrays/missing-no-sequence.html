@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Number in Sequence</title>
+</head>
+<body>
+   
+    <script>
+let arr = [2,1,4,5,];
+let n=5;
+function findMissing(arr, n){
+sum=0;
+for(ele of arr){
+    sum+=ele;
+}
+let actual = n*(n+1)/2
+return actual-sum
+}
+console.log(findMissing(arr, n))
+    </script>
+</body>
+</html>

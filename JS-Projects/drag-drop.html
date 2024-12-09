@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #b6caef;
+        background: #7d5fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        position: fixed;
+        width: 200px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        user-select: none;
+      }
+      .container:hover {
+        cursor: move;
+      }
+      #text {
+        color: #f73333;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span id="text">Drag this</span>
+    </div>
+    <script>
+      let box = document.querySelector(".container");
+      box.addEventListener("mousedown", handleMouseDown);
+
+      function handleMouseDown() {
+        box.style.cursor = 'move'
+        document.body.addEventListener("mousemove", handleMouseMove);
+        box.addEventListener("mouseup", handleMouseUp);
+      }
+      function handleMouseMove(e) {
+        let rect = box.getBoundingClientRect();
+        box.style.top = `${rect.top + e.movementY}px`;
+        box.style.left = `${rect.left + e.movementX}px`;
+      }
+      function handleMouseUp() {
+        box.style.cursor = "defaulat";
+        document.body.removeEventListener("mousemove", handleMouseMove);
+      }
+    </script>
+  </body>
+</html>

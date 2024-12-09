@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BG-Color Changer</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: #fe4567;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        transition: background 5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="special">
+      <label for="">Choose color</label>
+      <input type="color" id="color" />
+    </div>
+    <script>
+      let colorEle = document.getElementById("color");
+      // colorEle.oninput = function(){
+      colorEle.addEventListener("input", function () {
+        document.body.style.background = this.value;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Largest & Smallest & of Array</title>
+  </head>
+  <body>
+    <script>
+      // largest number
+
+      const nums = [4, 89, 67, 3, 7, 44, 6];
+      function max(num) {
+        return num.reduce(function (prev, curr) {
+          return prev > curr ? prev : curr;
+        });
+      }
+      console.log("largest Number", max(nums));
+
+      // smallest number
+
+      function min(num) {
+        return num.reduce(function (prev, curr) {
+          return prev < curr ? prev : curr;
+        });
+      }
+      console.log("Smallest Number", min(nums));
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy to Clipboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      body {
+        background-color: white;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        align-items: center;
+      }
+      .text-box {
+        height: 400px;
+        max-width: 660px;
+        margin: 55px 0;
+        margin-bottom: 20px;
+      }
+      #title {
+        font-size: 24px;
+        font-weight: 600;
+        color: blue;
+        margin-bottom: 20px;
+      }
+      #text {
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        font-weight: 400;
+        border-radius: 8px;
+        outline: none;
+        border: 1px solid blue;
+        font-size: 15px;
+        text-align: justify;
+        background: #f1f0f0;
+      }
+      #text::-webkit-scrollbar {
+        display: none;
+      }
+      #copy {
+        position: relative;
+        width: 140px;
+        height: 40px;
+        color: white;
+        background-color: blue;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        font-size: 15px;
+        font-weight: 400;
+        cursor: pointer;
+        margin: 8px 0;
+        transition: all 0.4s;
+      }
+      #copy:hover {
+        background-color: #0e4bf1;
+      }
+      .text-box button::before {
+        content: "copied";
+        position: absolute;
+        top: 5px;
+        left: 170px;
+        background: black;
+        padding: 7px 14px;
+        border-radius: 4px;
+        font-size: 18px;
+        display: none;
+      }
+      .text-box button::after {
+        content: "";
+        position: absolute;
+        top: 17px;
+        left: 165px;
+        width: 10px;
+        height: 10px;
+        background: black;
+        transform: rotate(45deg);
+        display: none;
+      }
+      .text-box.active button::before,
+      .text-box.active button::after {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-box">
+        <div id="title">Web Development</div>
+        <textarea id="text">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi et quasi voluptatibus eos ipsa tempore? Esse architecto voluptate iste inventore quasi! Ea nesciunt animi, ipsum veritatis doloribus nostrum soluta, quia ipsa dignissimos fuga sit quisquam consectetur est architecto deleniti nemo voluptates velit corrupti accusantium culpa saepe itaque. Sapiente eius necessitatibus aperiam praesentium quo consectetur? Nisi vero porro eaque dignissimos rerum delectus assumenda iste repudiandae provident eligendi et, quisquam, doloribus earum beatae ratione id. Id ipsa, temporibus excepturi aliquam nostrum deleniti est sequi, numquam nobis sunt eveniet voluptatum quam qui fugiat, amet explicabo molestias cupiditate. Mollitia est amet, deleniti eum vel sunt, pariatur illo totam earum cum aspernatur dignissimos recusandae quam similique voluptatum neque provident optio culpa excepturi adipisci reiciendis hic assumenda! Esse, perferendis. Deleniti esse culpa vitae dolor omnis minus aliquam atque dolorum, officia, recusandae ducimus. Quos ad blanditiis recusandae. Autem itaque eaque totam repellendus hic magni aliquam harum corporis?
+
+        </textarea>
+        <button id="copy">Copy text</button>
+      </div>
+    </div>
+    <script>
+      let copyTextEle = document.querySelector(".text-box");
+      let textEle = document.getElementById("text");
+      let copyEle = document.getElementById("copy");
+
+      copyEle.onclick = function () {
+        textEle.select();
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+
+        copyTextEle.classList.add("active");
+        setTimeout(() => {
+          copyTextEle.classList.remove("active");
+        }, 1000);
+      };
+    </script>
+  </body>
+</html>

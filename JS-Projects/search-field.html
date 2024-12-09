@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Field</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #7d5fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .s-box {
+        position: relative;
+        height: 50px;
+      }
+      .s-box input {
+        width: 50px;
+        height: 50px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        padding: 15px;
+        transition: 0.4s ease;
+        border-radius: 5px 0 0 5px;
+        transition: 0.4s ease;
+      }
+      .s-box .btn {
+        cursor: pointer;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: none;
+        border-radius: 0 5px 5px 0;
+
+      }
+      i {
+        font-size: 18px;
+      }
+      .s-box.active input {
+        width: 200px;
+      }
+      .s-box.active .btn {
+        transform: translateX(200px);
+        transition: 0.4s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="s-box">
+      <input type="text" placeholder="search..." class="search" />
+      <button class="btn">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    <script>
+      let btn = document.querySelector(".btn");
+      let sbox = document.querySelector(".s-box");
+      btn.onclick = function () {
+        sbox.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

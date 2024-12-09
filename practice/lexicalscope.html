@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical Scope</title>
+</head>
+<body>
+    <script>
+        let x = 'hi';
+        test1();
+
+        function test1(){
+            console.log(x);
+            let lang1 = 'JS';
+            test2();
+            
+            function test2(){
+                let z = 'hello';
+                test3();
+            }
+        }
+        function test3(){
+            let lang2 = 'java';
+            console.log(lang2)
+        }
+        //  lexical environment contains all the variables & fn`s in current scope &
+        // ref. to it`s parent lexical environment
+        
+    </script>
+</body>
+</html>

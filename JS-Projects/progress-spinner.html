@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Spinner</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #3498db;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .wrapper {
+        background-color: white;
+        width: 420px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0;
+        row-gap: 30px;
+        border-radius: 8px;
+      }
+      .progress {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: conic-gradient(#3498db 37deg, #ededed 0deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .progress::before {
+        content: "";
+        position: absolute;
+        height: 220px;
+        width: 220px;
+        border-radius: 50%;
+        background-color: white;
+      }
+      .percent {
+        font-size: 40px;
+        font-weight: 550;
+        color: #3498db;
+        position: relative;
+      }
+      .text {
+        font-size: 30px;
+        color: #3498db;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="progress">
+        <div class="percent">0%</div>
+      </div>
+      <span class="text">Uploading.....</span>
+    </div>
+    <script>
+      let progress = document.querySelector(".progress");
+      let percent = document.querySelector(".percent");
+
+      let startValue = 0;
+      let endValue = 90;
+      let speed = 100;
+
+      let progressTimer = setInterval(() => {
+        startValue += 1;
+        percent.innerText = `${startValue}%`;
+        progress.style.background = `conic-gradient(#3498db ${
+          startValue * 3.6
+        }deg, #ededed 0deg)`;
+
+        if (startValue == endValue) {
+          clearInterval(progressTimer);
+        }
+      }, speed);
+    </script>
+  </body>
+</html>

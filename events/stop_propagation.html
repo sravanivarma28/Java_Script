@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoStop Propagation Method</title>
+</head>
+<body>
+    <div class="parent" onclick="console.log('parent world')">
+        parent
+        <div class="child" onclick="console.log('child')">child</div>
+    </div>
+    <script>
+        let childEle = document.querySelector('.child');
+        childEle.onclick = function(e){
+            console.log('child');
+            e.stopPropagation()
+
+        }
+    </script>
+</body>
+</html>

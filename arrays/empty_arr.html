@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Array</title>
+</head>
+<body>
+   <script>
+    let empty =[5,7,2,1,7,3,3];
+    console. log('before empty',empty)
+
+    // various techniques
+    // empty = []
+    // empty.length = 0;
+
+    // while(empty.length>0){
+    //     empty.pop();
+    // }
+    
+    empty.splice(0,empty.length)
+
+    console.log(empty.length)
+    console.log(empty)
+   </script> 
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Reader</title>
+  </head>
+  <body>
+    <input type="file" />
+    <pre class="content"></pre>
+    <script>
+      let fileInput = document.querySelector("input");
+      let outputEle = document.querySelector(".content");
+      fileInput.addEventListener("change", () => {
+        let file = fileInput.files[0];
+        let fr = new FileReader();
+        // read as dataurl to read image files
+        fr.readAsText(file);
+        fr.addEventListener("load", () => {
+          outputEle.textContent = fr.result;
+        });
+      });
+    </script>
+  </body>
+</html>

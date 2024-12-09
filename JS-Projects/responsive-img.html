@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Image Gallery</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+        font-size: 30px;
+        margin: 20px 0;
+        color: #b23cfd;
+      }
+      .container {
+        position: relative;
+      }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
+      .gallery img {
+        width: 400px;
+        height: 200px;
+        object-fit: cover;
+        padding: 5px;
+        transition: all 4s;
+      }
+      .gallery img:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 10px lightgray;
+        transform: scale(1.03);
+      }
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 20;
+        display: none;
+      }
+      .popup span {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        z-index: 10;
+        color: white;
+        cursor: pointer;
+        font-size: 40px;
+        z-index: 20;
+      }
+      .popup img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        object-fit: cover;
+        max-width: 750px;
+        transform: translate(-50%, -50%);
+      }
+      @media (max-width: 768px) {
+        .popup img {
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Image Gallery</h1>
+      <div class="gallery">
+        <img src="./Images/art.jpeg" alt="" />
+        <img src="./Images/cat.jpeg" alt="" />
+        <img src="./Images/flower.jpeg" alt="" />
+        <img src="./Images/vivid.jpeg" alt="" />
+        <img src="./Images/girl.jpeg" alt="" />
+        <img src="./Images/leaf.jpeg" alt="" />
+        <img src="./Images/nature.jpeg" alt="" />
+        <img src="./Images/photo.jpeg" alt="" />
+        <img src="./Images/plant.jpg" alt="" />
+        <img src="./Images/software.jpg" alt="" />
+        <img src="./Images/spiral.jpeg" alt="" />
+        <img src="./Images/style.jpeg" alt="" />
+      </div>
+      <div class="popup">
+        <span>&times;</span>
+        <img src="./Images/plant.jpg" alt="" />
+      </div>
+    </div>
+    <script>
+      let images = document.querySelectorAll(".gallery img");
+      let popup = document.querySelector(".popup");
+      let popupimg = document.querySelector(".popup img");
+
+      for (img of images) {
+        img.onclick = function () {
+          popup.style.display = "block";
+          popupimg.src = this.getAttribute("src");
+        };
+      }
+      document.querySelector(".popup span").onclick = function () {
+        popup.style.display = "none";
+      };
+    </script>
+  </body>
+</html>

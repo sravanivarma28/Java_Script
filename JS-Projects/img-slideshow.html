@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slideshow</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .slideshow {
+        width: 350px;
+        height: 300px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: reveal 1s infinite;
+      }
+      @keyframes reveal {
+        0% {
+          opacity: 0.1;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow">
+      <img src="./Images/vivid.jpeg" alt="" class="img" />
+    </div>
+    <script>
+      let imgEle = document.querySelector(".img");
+      imgs = [
+        "./Images/cat.jpeg",
+        "./Images/flower.jpeg",
+        "./Images/leaf.jpeg",
+        "./Images/spiral.jpeg",
+        "./Images/nature.jpeg",
+        "./Images/girl.jpeg",
+      ];
+      let i = 0;
+      setInterval(() => {
+        imgEle.src = imgs[i];
+        i++;
+        if (i == imgs.length) {
+          i = 0;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

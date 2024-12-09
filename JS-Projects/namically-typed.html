@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charsetca="UTF-8">
+    <meta nameamim="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dynamically typed language</title>
+</head>
+<body>
+    <div>
+        let x=10; <br>
+        console.log("Before function call type is :",typeof(x));  <br>
+        test()  <br>
+        function test(){
+            x="hello";
+            console.log("Inside function call type is :",typeof(x));  <br>
+    
+        } <br>
+        console.log("Outside function call type is :",typeof(x));  <br>
+        x=true;  <br>
+        console.log("Outside function call type is :",typeof(x));  <br>
+    
+    </div>
+<script>
+    let x=10; 
+    console.log("Before function call type is :",typeof(x));
+    test()
+    function test(){
+        x="hello";  
+        console.log("Inside function call type is :",typeof(x));
+
+    }
+    console.log("Outside function call type is :",typeof(x));
+    x=true;
+    console.log("Outside function call type is :",typeof(x));
+
+
+    </script>
+</body>
+</html>

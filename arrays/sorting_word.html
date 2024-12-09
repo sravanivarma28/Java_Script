@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting of string array</title>
+</head>
+<body>
+    <script>
+        let arr = ['HTML','CSS','JAVASCRIPT' ,'REACT JS' ,'Web Development'];
+        console.log(arr)
+ arr.sort((s1,s2)=>{
+    return s1.length - s2.length;
+    
+ })
+ console.log(arr)
+ // another method
+console.log(arr.sort());
+ 
+//sorting unique elements
+const array = [14, 2, 3, 6, 2, 14, 8, 6, 3];
+      console.log('original array',array);
+
+      const unique = array.filter(
+        (ele, index, arr) => arr.indexOf(ele) == index
+      );
+      console.log("Unique Values",unique);
+
+    </script>
+</body>
+</html>

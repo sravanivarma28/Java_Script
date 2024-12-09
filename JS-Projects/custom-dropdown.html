@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom DropDown</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    background-color: rgb(91, 91, 245);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+}
+.dropdown{
+    width: 300px;
+}
+.dropdown-select{
+    background-color: white;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.icon{
+    float: right;
+    font-size: 12px;
+}
+.option-list{
+    background-color: white;
+    border-radius: 5px;
+    margin: 8px;
+    visibility: hidden;
+}
+.option-list.active{
+    visibility: visible;
+}
+.option{
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+.option-hover{
+    background-color: #f2f2f2;
+}
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <div class="dropdown-select">
+            <span class="select">Select List</span>
+            <span class="icon">&#9650</span>
+        </div>
+        <div class="option-list">
+            <div class="option">Telengana</div>
+            <div class="option">Kerala</div>
+            <div class="option">Goa</div>
+            <div class="option">Tamilnadu</div>
+        </div>
+    </div>
+
+    <script>
+        let options = document.getElementsByClassName('option');
+        let selectEle = document.querySelector('.select');
+        let optionList = document.querySelector('.option-list');
+
+        let icon = document.querySelector('.icon');
+        let dropdown = document.querySelector('.dropdown-select');
+
+        dropdown.onclick = function(){
+            optionList.classList.toggle('active');
+            icon.innerHTML = "&#9660";
+        }
+        for(op of options){
+            op.onclick = function(){
+                selectEle.innerText = this.innerText;
+            optionList.classList.toggle('active');
+            icon.innerHTML = "&#9650";
+
+            }
+        }
+    </script>
+</body>
+</html>

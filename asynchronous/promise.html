@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <script>
+        let p = new Promise(function(resolve,reject){
+    let data = true;
+    if(data){
+        resolve('Data received')
+    } else {
+        reject('No data found')
+    }
+})
+p.then(function(data){
+    console.log(data)
+})
+p.catch(function(errordata){
+    console.log(errordata)
+})
+console.log(p)
+    </script>
+</body>
+</html>

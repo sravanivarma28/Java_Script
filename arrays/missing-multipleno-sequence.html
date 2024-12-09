@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Multiple Number Sequence</title>
+</head>
+<body>
+    <script>
+        let arr = [5,3,1,2,4];
+        let n=10;
+        function findAllMissing(arr, n){
+            let obj ={};
+            let missing = [];
+        for(num of arr){
+            obj[num] = num
+            // obj = {5:5,1:1,3:3}
+        }
+        for(i=1;i<=n;i++){
+            if(obj[i]==undefined){
+                missing.push(i)
+            }
+        }
+        return missing; 
+        }
+        console.log(findAllMissing(arr, n))
+            </script>
+</body>
+</html>

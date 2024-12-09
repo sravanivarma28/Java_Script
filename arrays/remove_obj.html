@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Objects from Array</title>
+</head>
+<body>
+    <script>
+        let products = [
+            {id:1,name:'sravs'} ,
+            {id:2,name:'manvi'} ,
+            {id:3,name:'chinna'} ,
+            {id:4,name:'mansi'} ,
+            {id:1,name:'sravs'} ,
+            {id:2,name:'manvi'} ,
+        ]
+        let temp = products.map(
+            JSON.stringify
+        )
+    temp = new Set(temp)
+    temp = Array.from(temp)
+
+    temp = temp.map(
+        JSON.parse
+    )
+        console.log(temp);
+    </script>
+    
+</body>
+</html>

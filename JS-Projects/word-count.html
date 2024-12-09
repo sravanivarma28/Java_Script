@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Count</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: linear-gradient(#23a6d5, #23d5ab);
+        height: 100vh;
+      }
+      .header {
+        color: white;
+        font-size: 32px;
+        margin: 20px 0;
+        text-align: center;
+      }
+      .wrapper {
+        width: 500px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .container {
+        background-color: rgba(255, 255, 2555, 0.3);
+        padding: 30px;
+        border-radius: 8px;
+      }
+      textarea {
+        width: 100%;
+        resize: none;
+        border: 3px solid #23a6d5;
+        outline: none;
+        border-radius: 5px;
+        padding: 30px;
+        background-color: rgba(255, 255, 2555, 0.9);
+      }
+      .count {
+        width: 60%;
+        padding: 30px;
+        border-radius: 5px;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        background-color: black;
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+
+      }
+      .count h4{
+        color: white;
+        font-size: 28px;
+      }
+      .count p{
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">Words & Characters count</div>
+    <div class="wrapper">
+      <div class="container">
+        <textarea rows="20" id="text-content"></textarea>
+      </div>
+      <div class="count">
+        <div>
+          <h4 id="word-count">0</h4>
+          <p>Words</p>
+        </div>
+        <div>
+          <h4 id="char-count">0</h4>
+          <p>Characters</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      let textAreaEle = document.getElementById('text-content');
+      let wordCountEle = document.getElementById('word-content');
+      let charCountEle = document.getElementById('char-content');
+let content = ''
+textAreaEle.addEventListener(
+'input',()=>{
+  content = textAreaEle.value;
+  charCountEle.innerHTML = content.length;
+  let text = content.trim()
+  let words = text.split(/\s/).length;
+  wordCountEle.innerHTML = words
+
+}
+)
+      </script>
+  </body>
+</html>

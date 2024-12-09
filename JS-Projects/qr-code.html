@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR-Code Generator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: rgb(185, 185, 255);
+      }
+      .container {
+        height: 260px;
+        width: 400px;
+        background-color: white;
+        border-radius: 8px;
+        padding: 25px;
+        padding-bottom: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: height 0.2s ease;
+      }
+      h1 {
+        font-size: 30px;
+        text-align: center;
+      }
+      .form {
+        margin: 20px 25px;
+      }
+      #text,
+      #generate {
+        width: 100%;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+      }
+      #text {
+        font-size: 16px;
+        padding: 1px 17px;
+        border: 1px solid #999;
+      }
+      #generate {
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+        font-style: 16px;
+        background-color: rgb(29, 93, 136);
+      }
+
+      .qr-code {
+        /* opacity: 0; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 30px 0;
+      }
+      #qr-img {
+        width: 175px;
+      }
+      .container.active {
+        height: 530px;
+      }
+
+      /* .container.active .qr-code{
+    opacity: 1;
+} */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>QR Code Generator</h1>
+      <div class="form">
+        <input type="text" id="text" placeholder="Enter Text" />
+        <button id="generate">Generate QR Code</button>
+      </div>
+      <div class="qr-code">
+        <img src="" alt="" id="qr-img" />
+      </div>
+    </div>
+
+    <script>
+      let container = document.querySelector(".container");
+      let qrInput = document.querySelector("#text");
+      let genearateBtn = document.querySelector("#generate");
+      let img = document.querySelector("#qr-img");
+
+      let preInput;
+
+      genearateBtn.onclick = function () {
+        let input = qrInput.value.trim();
+
+        if (!input || preInput) {
+          alert("this field should be empty and different with previous input");
+          return;
+        } else {
+          preInput = input;
+          genearateBtn.innerText = "Generating QR Code..";
+          img.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${input}`;
+
+          img.onload = function () {
+            container.classList.add("active");
+            genearateBtn.innerText = "Generate QR Code";
+          };
+        }
+      };
+    </script>
+  </body>
+</html>

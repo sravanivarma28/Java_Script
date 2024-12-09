@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <style>
+              * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 30px;
+        background: rgb(109, 167, 238);
+      }
+      .container {
+        height: 450px;
+        width: 450px;
+        background-color: white;
+        border-radius: 8px;
+        padding:40px 30px;
+        
+      }
+      .heading{
+        font-size: 30px;
+        text-align: center;
+      }
+      .box{
+        display: flex;
+        flex-direction: column;
+        margin: 30px 0;
+      }
+      .box textarea{
+        height: 100px;
+        resize: none;
+        padding:8px 10px;
+        font-size: 18px;
+        outline: none;
+        border-radius: 5px;
+        width: 100%;
+        margin-top: 5px;
+      }
+      .box textarea::-webkit-scrollbar{
+        display: none;
+      }
+      #voiceList,#speak{
+        height: 42px;
+        resize: none;
+        font-size: 16px;
+        border-radius: 5px;
+        width: 100%;
+        margin: 5px;
+      }
+      #speak{
+        border: none;
+        background-color: rgba(58, 129, 214,0.8);
+        color: white;
+        cursor: pointer;
+
+      }
+      #speaker:hover{
+        background-color: rgb(75, 136, 241);
+
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Text to Speech</h1>
+
+        <div class="box">
+            <label>Enter Text</label>
+            <textarea id="text"></textarea>
+        </div>
+        <div class="box">
+            <label>Select Voice</label>
+            <div class="select-voices">
+                <select name="" id="voiceList"></select>
+            </div>
+        </div>
+        <button id="speak">Convert to Speech</button>
+        
+    </div>
+   <script>
+    let textEle = document.getElementById('text');
+    let voicesEle = document.getElementById('voiceList');
+    let speechBtn = document.getElementById('speak');
+
+let speechSynth = speechSynthesis
+
+speechSynth.addEventListener('voiceschanged',loadvoices);
+
+function loadvoices(){
+    let voices = speechSynth.getVoices()
+    for(voice of voices){
+        let option = document.createElement('option')
+        option.value = voice.name;
+        option.innerText = `${voice.name} ${voice.lang}`
+        voicesEle.appendChild(option)
+        // console.log (option)
+    }
+}
+
+function textToSpeech(text){
+    let utterance = new SpeechSynthesisUtterance(text);
+    for(let voice of speechSynth.getVoices()){
+        if(voice.name === voicesEle.value){
+            utterance.voice = voice;
+        }
+    }
+    speechSynth.speak(utterance);
+}
+speechBtn.addEventListener('click',function(){
+    if(textEle.value !== ""){
+        if(!speechSynth.speaking){
+        textToSpeech(textEle.value);
+    }
+}
+else{
+    alert('Enter some text')
+}
+});
+   </script> 
+</body>
+</html>
